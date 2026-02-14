@@ -94,7 +94,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="absolute left-1/2 transform -translate-x-1/2 -top-2 z-20"
+              className="absolute left-1/2 transform -translate-x-1/2 top-2 z-20"
             >
               <Link to="/">
                 <img 
@@ -140,7 +140,7 @@ const Hero = () => {
         {/* Main Logo Section - Centered */}
         <div className="flex-grow flex flex-col items-center justify-center px-4">
           {/* Spacer for Lincoln Logo */}
-          <div className="h-20 md:h-28" />
+          <div className="h-32 md:h-44 lg:h-48" />
           
           {/* Header Logo Brand Name */}
           <motion.div
