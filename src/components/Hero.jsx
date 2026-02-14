@@ -3,12 +3,13 @@ import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { UtensilsCrossed, Facebook, Instagram, Phone } from 'lucide-react';
 
-// Hero images array
+// Hero images array - use base URL for GitHub Pages
+const baseUrl = import.meta.env.BASE_URL;
 const heroImages = [
-  '/images/Hero-Image-1.jpg',
-  '/images/Hero-Image-2.jpg',
-  '/images/Hero-Image-3.jpg',
-  '/images/Hero-Image-4.jpg'
+  `${baseUrl}images/Hero-Image-1.jpg`,
+  `${baseUrl}images/Hero-Image-2.jpg`,
+  `${baseUrl}images/Hero-Image-3.jpg`,
+  `${baseUrl}images/Hero-Image-4.jpg`
 ];
 
 const navLinks = [
@@ -97,7 +98,7 @@ const Hero = () => {
             >
               <Link to="/">
                 <img 
-                  src="/images/Lincoln-Logo.png" 
+                  src={`${baseUrl}images/Lincoln-Logo.png`}
                   alt="The Lincoln" 
                   className="h-32 md:h-40 lg:h-48 xl:h-52 max-h-[200px] w-auto"
                 />
@@ -149,7 +150,7 @@ const Hero = () => {
             className="text-center"
           >
             <img 
-              src="/images/Header-Logo-Brand-Name.png" 
+              src={`${baseUrl}images/Header-Logo-Brand-Name.png`}
               alt="The Lincoln Pub & Grub"
               className="max-w-xs md:max-w-md lg:max-w-xl xl:max-w-2xl h-auto mx-auto"
             />
@@ -169,7 +170,7 @@ const Hero = () => {
               <div className="bg-lincoln-dark/80 backdrop-blur p-6 rounded-lg border border-lincoln-gold/30">
                 <div className="flex items-center gap-3 mb-4 justify-center">
                   <img 
-                    src="/images/Fork-and-Knife-Icon.png" 
+                    src={`${baseUrl}images/Fork-and-Knife-Icon.png`}
                     alt="Menu" 
                     className="h-8 w-auto"
                   />

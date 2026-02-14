@@ -2,6 +2,8 @@ import { Link, useLocation } from 'react-router-dom';
 import { Phone, Menu, X, Facebook, Instagram } from 'lucide-react';
 import { useState } from 'react';
 
+const baseUrl = import.meta.env.BASE_URL;
+
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
@@ -22,7 +24,7 @@ const Navbar = () => {
           {/* Left - Logo */}
           <Link to="/" className="flex-shrink-0">
             <img 
-              src="/images/Lincoln-Logo.png" 
+              src={`${baseUrl}images/Lincoln-Logo.png`}
               alt="The Lincoln" 
               className="h-12 md:h-14 w-auto"
             />
