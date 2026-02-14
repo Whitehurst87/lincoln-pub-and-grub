@@ -1,0 +1,86 @@
+/* Google Fonts - must be first */
+@import url('https://fonts.googleapis.com/css2?family=Kreon:wght@300;400;500;600;700&family=Albert+Sans:wght@300;400;500;600;700;800&display=swap');
+
+@import "tailwindcss";
+
+/* Custom Theme Variables - Lincoln Pub Style Guide */
+@theme {
+  /* Color Palette */
+  --color-lincoln-black: #000000;
+  --color-lincoln-dark: #2A3440;
+  --color-lincoln-gold: #D3AB55;
+  --color-lincoln-orange: #E7A118;
+  --color-lincoln-yellow: #F8D206;
+  --color-lincoln-white: #FFFFFF;
+  
+  /* Legacy colors for compatibility */
+  --color-lincoln-green: #2A3440;
+  --color-copper: #D3AB55;
+  --color-paper: #1a1a1a;
+  
+  /* Typography */
+  --font-header: 'Kreon', serif;
+  --font-subheader: 'Albert Sans', sans-serif;
+  --font-body: 'Albert Sans', sans-serif;
+  --font-serif: 'Kreon', serif;
+  --font-sans: 'Albert Sans', sans-serif;
+}
+
+/* Base styles */
+body {
+  font-family: var(--font-body);
+  font-weight: 300;
+  background-color: var(--color-lincoln-black);
+  color: var(--color-lincoln-white);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-header);
+  font-weight: 300;
+}
+
+/* Road Rage font for accent text - loaded via @font-face */
+@font-face {
+  font-family: 'Road Rage';
+  src: url('https://fonts.cdnfonts.com/s/16183/Road_Rage.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.font-accent {
+  font-family: 'Road Rage', cursive;
+}
+
+/* Animation for menu items */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out forwards;
+}
+
+/* Custom scrollbar for dark theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-lincoln-black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-lincoln-gold);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-lincoln-orange);
+}
