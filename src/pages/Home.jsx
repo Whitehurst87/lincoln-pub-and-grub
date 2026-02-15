@@ -55,7 +55,7 @@ const Home = () => {
               
               {/* Social Link */}
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/TheLincolnFresno"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 bg-lincoln-dark border-2 border-lincoln-gold px-6 py-3 text-white hover:bg-lincoln-gold hover:text-black transition-all"

@@ -147,10 +147,10 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
             <p>© {new Date().getFullYear()} Copyright - THE LINCOLN PUB & GRUB</p>
             <div className="flex gap-6">
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-lincoln-gold transition-colors">
+              <a href="https://www.facebook.com/TheLincolnFresno" target="_blank" rel="noopener noreferrer" className="hover:text-lincoln-gold transition-colors">
                 Facebook
               </a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-lincoln-gold transition-colors">
+              <a href="https://www.instagram.com/thelincolnpub/" target="_blank" rel="noopener noreferrer" className="hover:text-lincoln-gold transition-colors">
                 Instagram
               </a>
             </div>

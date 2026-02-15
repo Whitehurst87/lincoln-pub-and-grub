@@ -126,7 +126,7 @@ const Contact = () => {
                   <div>
                     <h3 className="font-subheader font-bold text-lg text-white mb-1">Instagram</h3>
                     <a
-                      href="https://instagram.com"
+                      href="https://www.instagram.com/thelincolnpub/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-gray-400 hover:text-lincoln-gold transition-colors"

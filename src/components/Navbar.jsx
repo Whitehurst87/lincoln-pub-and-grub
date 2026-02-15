@@ -120,7 +120,7 @@ const Navbar = () => {
             <div className="mt-4 pt-4 border-t border-lincoln-gold/30 flex flex-col items-center gap-4">
               <div className="flex items-center gap-6">
                 <a
-                  href="https://facebook.com"
+                  href="https://www.facebook.com/TheLincolnFresno"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-lincoln-gold hover:text-lincoln-yellow transition-colors"
@@ -128,7 +128,7 @@ const Navbar = () => {
                   <Facebook size={24} />
                 </a>
                 <a
-                  href="https://instagram.com"
+                  href="https://www.instagram.com/thelincolnpub/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-lincoln-gold hover:text-lincoln-yellow transition-colors"

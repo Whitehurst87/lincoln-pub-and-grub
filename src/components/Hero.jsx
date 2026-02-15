@@ -52,7 +52,7 @@ const Hero = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.75 }}
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage: `url('${heroImages[currentImageIndex]}')`,
@@ -108,7 +108,7 @@ const Hero = () => {
             {/* Right - Social & Contact */}
             <div className="hidden md:flex items-center gap-4 pt-4">
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/TheLincolnFresno"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white hover:text-lincoln-gold transition-colors"
@@ -117,7 +117,7 @@ const Hero = () => {
                 <Facebook size={20} />
               </a>
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/thelincolnpub/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white hover:text-lincoln-gold transition-colors"
