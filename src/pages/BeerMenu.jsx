@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { Beer, MapPin, Loader2 } from 'lucide-react';
+import SubpageHero from '../components/SubpageHero';
 
 // Menu configuration
 const MENUS = {
@@ -98,22 +99,13 @@ const BeerMenu = () => {
 
   return (
     <div className="min-h-screen bg-lincoln-black">
-      {/* Header */}
-      <div className="bg-lincoln-dark py-12 border-b border-lincoln-gold/30">
-        <div className="container mx-auto px-4 text-center">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <Beer className="text-lincoln-gold" size={40} />
-          </div>
-          <h1 className="text-lincoln-yellow font-header text-4xl md:text-5xl mb-4">
-            BEER MENU
-          </h1>
-          <div className="w-16 h-1 bg-lincoln-gold mx-auto mb-4" />
-          <p className="text-gray-400 max-w-xl mx-auto">
-            Explore our rotating selection of craft beers on tap. 
-            Select a location to view the current menu.
-          </p>
-        </div>
-      </div>
+      {/* Hero Section */}
+      <SubpageHero 
+        title="BEER MENU"
+        subtitle="Explore our rotating selection of craft beers on tap. Select a location to view the current menu."
+        image="Beer Menu Hero Image.jpg"
+        height="40vh"
+      />
 
       <div className="container mx-auto px-4 py-10">
         {/* Location Selection Buttons */}

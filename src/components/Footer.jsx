@@ -1,6 +1,24 @@
 import { MapPin, Clock, Phone, Instagram, Facebook, Mail, Send } from 'lucide-react';
 import { useState } from 'react';
 
+// Location data
+const locations = [
+  {
+    name: 'Tower District',
+    address: '609 E. Olive Avenue Suite A',
+    city: 'Fresno, California 93728',
+    phone: '(559) 355-3533',
+    phoneLink: 'tel:5593553533',
+  },
+  {
+    name: 'Old Town Clovis',
+    address: '401 Clovis Ave #106',
+    city: 'Clovis, CA 93612',
+    phone: '(559) 882-3899',
+    phoneLink: 'tel:5598823899',
+  },
+];
+
 const Footer = () => {
   const [email, setEmail] = useState('');
 
@@ -45,16 +63,16 @@ const Footer = () => {
 
       {/* Main Footer Content */}
       <div className="container mx-auto px-4 py-12">
-        <div className="grid md:grid-cols-4 gap-10">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
-          <div className="md:col-span-1">
+          <div>
             <div className="mb-4">
               <span className="text-lincoln-gold text-sm tracking-[0.2em]">THE</span>
               <h2 className="text-3xl font-header font-light text-white">LINCOLN</h2>
               <span className="text-lincoln-yellow text-sm tracking-wider">PUB & GRUB</span>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed">
-              A locally owned restaurant and bar located in Fresno's historic Tower District.
+              A locally owned restaurant and bar with locations in Fresno's historic Tower District and Old Town Clovis.
             </p>
           </div>
 
@@ -86,40 +104,38 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Location */}
+          {/* Locations */}
           <div>
             <div className="flex items-center gap-2 mb-4">
               <MapPin className="text-lincoln-gold" size={20} />
               <h3 className="text-lincoln-yellow font-subheader font-bold uppercase tracking-wider">
-                Location
+                Locations
               </h3>
             </div>
-            <div className="space-y-2 text-sm text-gray-300">
-              <p>609 E. Olive Avenue Suite A</p>
-              <p>Fresno, California 93728</p>
-              <a
-                href="tel:5593553533"
-                className="flex items-center gap-2 mt-3 text-lincoln-gold hover:text-lincoln-yellow transition-colors"
-              >
-                <Phone size={16} />
-                (559) 355-3533
-              </a>
-              <a
-                href="mailto:thelincolnfresno@gmail.com"
-                className="flex items-center gap-2 text-lincoln-gold hover:text-lincoln-yellow transition-colors"
-              >
-                <Mail size={16} />
-                thelincolnfresno@gmail.com
-              </a>
+            <div className="space-y-6">
+              {locations.map((location, index) => (
+                <div key={index} className="text-sm text-gray-300">
+                  <h4 className="text-lincoln-gold font-semibold mb-1">{location.name}</h4>
+                  <p>{location.address}</p>
+                  <p>{location.city}</p>
+                  <a
+                    href={location.phoneLink}
+                    className="flex items-center gap-2 mt-2 text-lincoln-gold hover:text-lincoln-yellow transition-colors"
+                  >
+                    <Phone size={14} />
+                    {location.phone}
+                  </a>
+                </div>
+              ))}
             </div>
           </div>
 
-          {/* Social */}
+          {/* Social & Contact */}
           <div>
             <h3 className="text-lincoln-yellow font-subheader font-bold uppercase tracking-wider mb-4">
               Connect
             </h3>
-            <div className="flex gap-4">
+            <div className="flex gap-4 mb-6">
               <a
                 href="https://www.facebook.com/TheLincolnFresno"
                 target="_blank"
@@ -137,6 +153,13 @@ const Footer = () => {
                 <Instagram size={24} />
               </a>
             </div>
+            <a
+              href="mailto:thelincolnfresno@gmail.com"
+              className="flex items-center gap-2 text-sm text-lincoln-gold hover:text-lincoln-yellow transition-colors"
+            >
+              <Mail size={16} />
+              thelincolnfresno@gmail.com
+            </a>
           </div>
         </div>
       </div>

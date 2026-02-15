@@ -1,7 +1,63 @@
-import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import Hero from '../components/Hero';
 import { Facebook } from 'lucide-react';
+
+// Food images for slideshow
+const baseUrl = import.meta.env.BASE_URL;
+const foodImages = [
+  `${baseUrl}images/Buffalo-Chicken-Fries.jpg`,
+  `${baseUrl}images/Eggs-Benedict-Plate.jpg`,
+  `${baseUrl}images/Fish-and-chips.png`,
+  `${baseUrl}images/Pulled-Pork-Sandwich.png`,
+];
+
+// Food Image Slideshow Component
+const FoodSlideshow = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % foodImages.length);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className="relative aspect-[4/3] rounded-lg overflow-hidden border-2 border-lincoln-gold">
+      <AnimatePresence mode="sync">
+        <motion.img
+          key={currentIndex}
+          src={foodImages[currentIndex]}
+          alt="Delicious food at The Lincoln"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.75 }}
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+      </AnimatePresence>
+      
+      {/* Slideshow indicators */}
+      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
+        {foodImages.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentIndex(index)}
+            className={`w-2 h-2 rounded-full transition-all ${
+              index === currentIndex
+                ? 'bg-lincoln-gold w-6'
+                : 'bg-white/50 hover:bg-white/80'
+            }`}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
 
 const Home = () => {
   return (
@@ -12,7 +68,7 @@ const Home = () => {
       <section className="py-16 md:py-24 bg-lincoln-black">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Image */}
+            {/* Image Slideshow */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -20,13 +76,7 @@ const Home = () => {
               viewport={{ once: true }}
               className="relative"
             >
-              <div className="aspect-[4/3] rounded-lg overflow-hidden border-2 border-lincoln-gold">
-                <img
-                  src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
-                  alt="Craft cocktail"
-                  className="w-full h-full object-cover"
-                />
-              </div>
+              <FoodSlideshow />
               {/* Decorative element */}
               <div className="absolute -bottom-4 -right-4 w-24 h-24 border-2 border-lincoln-gold -z-10" />
             </motion.div>

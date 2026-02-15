@@ -1,107 +1,173 @@
 import { motion } from 'framer-motion';
 import { MapPin, Phone, Clock, Mail, Navigation, Instagram } from 'lucide-react';
+import SubpageHero from '../components/SubpageHero';
+
+// Location data
+const locations = [
+  {
+    name: 'Tower District',
+    address: '609 E. Olive Avenue Suite A',
+    city: 'Fresno, California 93728',
+    phone: '(559) 355-3533',
+    phoneLink: 'tel:5593553533',
+    mapsUrl: 'https://maps.google.com/?q=609+E+Olive+Avenue+Fresno+CA+93728',
+    mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3195.8!2d-119.7869!3d36.7468!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzbCsDQ0JzQ4LjUiTiAxMTnCsDQ3JzEyLjgiVw!5e0!3m2!1sen!2sus!4v1234567890',
+  },
+  {
+    name: 'Old Town Clovis',
+    address: '401 Clovis Ave #106',
+    city: 'Clovis, CA 93612',
+    phone: '(559) 882-3899',
+    phoneLink: 'tel:5598823899',
+    mapsUrl: 'https://maps.google.com/?q=401+Clovis+Ave+Clovis+CA+93612',
+    mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3193.5!2d-119.7031!3d36.8252!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzbCsDQ5JzMwLjciTiAxMTnCsDQyJzExLjIiVw!5e0!3m2!1sen!2sus!4v1234567890',
+  },
+];
 
 const Contact = () => {
   return (
     <div className="min-h-screen bg-lincoln-black">
-      {/* Header */}
-      <div className="bg-lincoln-dark py-12 border-b border-lincoln-gold/30">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-lincoln-yellow font-header text-4xl md:text-5xl mb-4">
-            CONTACT US
-          </h1>
-          <div className="w-16 h-1 bg-lincoln-gold mx-auto mb-4" />
-          <p className="text-gray-400 max-w-xl mx-auto">
-            We'd love to hear from you! Stop by, give us a call, or send us a message.
-          </p>
-        </div>
-      </div>
+      {/* Hero Section */}
+      <SubpageHero 
+        title="CONTACT US"
+        subtitle="We'd love to hear from you! Stop by, give us a call, or send us a message."
+        image="Hero-Image-2.jpg"
+        height="40vh"
+      />
 
       <div className="container mx-auto px-4 py-12">
         <div className="max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12">
-            {/* Contact Info */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <h2 className="text-lincoln-yellow font-header text-2xl mb-8">
-                VISIT THE LINCOLN
-              </h2>
-
-              <div className="space-y-6">
-                {/* Address */}
-                <div className="flex gap-4 items-start">
-                  <div className="bg-lincoln-dark border border-lincoln-gold p-3">
-                    <MapPin className="text-lincoln-gold" size={24} />
-                  </div>
-                  <div>
-                    <h3 className="font-subheader font-bold text-lg text-white mb-1">Address</h3>
-                    <p className="text-gray-400">609 E. Olive Avenue Suite A</p>
-                    <p className="text-gray-400">Fresno, California 93728</p>
-                    <a
-                      href="https://maps.google.com/?q=609+E+Olive+Avenue+Fresno+CA+93728"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-lincoln-gold font-semibold mt-2 hover:text-lincoln-yellow transition-colors"
-                    >
-                      <Navigation size={16} />
-                      Get Directions
-                    </a>
-                  </div>
+          {/* Locations Grid */}
+          <div className="grid lg:grid-cols-2 gap-8 mb-16">
+            {locations.map((location, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+                className="bg-lincoln-dark border border-lincoln-gold/50 overflow-hidden"
+              >
+                {/* Map Embed */}
+                <div className="aspect-video bg-gray-800">
+                  <iframe
+                    src={location.mapEmbed}
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen=""
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title={`${location.name} Location`}
+                    className="w-full h-full"
+                  />
                 </div>
 
-                {/* Phone */}
-                <div className="flex gap-4 items-start">
-                  <div className="bg-lincoln-dark border border-lincoln-gold p-3">
-                    <Phone className="text-lincoln-gold" size={24} />
-                  </div>
-                  <div>
-                    <h3 className="font-subheader font-bold text-lg text-white mb-1">Phone</h3>
-                    <a
-                      href="tel:5593553533"
-                      className="text-gray-400 hover:text-lincoln-gold transition-colors"
-                    >
-                      (559) 355-3533
-                    </a>
-                    <p className="text-sm text-gray-500 mt-1">
-                      Call for reservations or takeout orders
-                    </p>
-                  </div>
-                </div>
+                {/* Location Info */}
+                <div className="p-6">
+                  <h2 className="text-lincoln-yellow font-header text-2xl mb-4">
+                    {location.name}
+                  </h2>
 
-                {/* Hours */}
-                <div className="flex gap-4 items-start">
-                  <div className="bg-lincoln-dark border border-lincoln-gold p-3">
-                    <Clock className="text-lincoln-gold" size={24} />
-                  </div>
-                  <div>
-                    <h3 className="font-subheader font-bold text-lg text-white mb-2">Hours of Operation</h3>
-                    <div className="space-y-1 text-gray-400">
-                      <div className="flex justify-between gap-8">
-                        <span>Monday - Wednesday</span>
-                        <span className="text-lincoln-gold">11AM - 11PM</span>
+                  <div className="space-y-4">
+                    {/* Address */}
+                    <div className="flex gap-4 items-start">
+                      <MapPin className="text-lincoln-gold mt-1" size={20} />
+                      <div>
+                        <p className="text-gray-300">{location.address}</p>
+                        <p className="text-gray-300">{location.city}</p>
+                        <a
+                          href={location.mapsUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 text-lincoln-gold font-semibold mt-2 hover:text-lincoln-yellow transition-colors text-sm"
+                        >
+                          <Navigation size={14} />
+                          Get Directions
+                        </a>
                       </div>
-                      <div className="flex justify-between gap-8">
-                        <span>Thursday</span>
-                        <span className="text-lincoln-gold">11AM - 12AM</span>
-                      </div>
-                      <div className="flex justify-between gap-8">
-                        <span>Friday - Saturday</span>
-                        <span className="text-lincoln-gold">11AM - 12:30AM</span>
-                      </div>
-                      <div className="flex justify-between gap-8">
-                        <span>Sunday</span>
-                        <span className="text-lincoln-gold">10AM - 11PM</span>
+                    </div>
+
+                    {/* Phone */}
+                    <div className="flex gap-4 items-start">
+                      <Phone className="text-lincoln-gold mt-1" size={20} />
+                      <div>
+                        <a
+                          href={location.phoneLink}
+                          className="text-gray-300 hover:text-lincoln-gold transition-colors text-lg"
+                        >
+                          {location.phone}
+                        </a>
                       </div>
                     </div>
                   </div>
-                </div>
 
+                  {/* CTA Button */}
+                  <a
+                    href={location.mapsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block mt-6 bg-lincoln-orange hover:bg-lincoln-yellow text-black px-6 py-3 font-subheader font-bold uppercase text-sm tracking-wider transition-colors"
+                  >
+                    Open in Maps
+                  </a>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Hours & Contact Info */}
+          <div className="grid lg:grid-cols-2 gap-12 mb-16">
+            {/* Hours */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="bg-lincoln-dark border border-lincoln-gold/50 p-8"
+            >
+              <div className="flex items-center gap-3 mb-6">
+                <Clock className="text-lincoln-gold" size={28} />
+                <h2 className="text-lincoln-yellow font-header text-2xl">
+                  HOURS OF OPERATION
+                </h2>
+              </div>
+              <div className="space-y-3 text-gray-300">
+                <div className="flex justify-between gap-8 py-2 border-b border-lincoln-gold/20">
+                  <span>Monday - Wednesday</span>
+                  <span className="text-lincoln-gold font-semibold">11AM - 11PM</span>
+                </div>
+                <div className="flex justify-between gap-8 py-2 border-b border-lincoln-gold/20">
+                  <span>Thursday</span>
+                  <span className="text-lincoln-gold font-semibold">11AM - 12AM</span>
+                </div>
+                <div className="flex justify-between gap-8 py-2 border-b border-lincoln-gold/20">
+                  <span>Friday - Saturday</span>
+                  <span className="text-lincoln-gold font-semibold">11AM - 12:30AM</span>
+                </div>
+                <div className="flex justify-between gap-8 py-2">
+                  <span>Sunday</span>
+                  <span className="text-lincoln-gold font-semibold">10AM - 11PM</span>
+                </div>
+              </div>
+              <p className="mt-4 text-sm text-gray-500">
+                * Hours may vary on holidays. Call to confirm.
+              </p>
+            </motion.div>
+
+            {/* Contact Info */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="bg-lincoln-dark border border-lincoln-gold/50 p-8"
+            >
+              <h2 className="text-lincoln-yellow font-header text-2xl mb-6">
+                GET IN TOUCH
+              </h2>
+
+              <div className="space-y-6">
                 {/* Email */}
                 <div className="flex gap-4 items-start">
-                  <div className="bg-lincoln-dark border border-lincoln-gold p-3">
+                  <div className="bg-lincoln-black border border-lincoln-gold p-3">
                     <Mail className="text-lincoln-gold" size={24} />
                   </div>
                   <div>
@@ -120,7 +186,7 @@ const Contact = () => {
 
                 {/* Instagram */}
                 <div className="flex gap-4 items-start">
-                  <div className="bg-lincoln-dark border border-lincoln-gold p-3">
+                  <div className="bg-lincoln-black border border-lincoln-gold p-3">
                     <Instagram className="text-lincoln-gold" size={24} />
                   </div>
                   <div>
@@ -131,64 +197,21 @@ const Contact = () => {
                       rel="noopener noreferrer"
                       className="text-gray-400 hover:text-lincoln-gold transition-colors"
                     >
-                      @thelincolnfresno
+                      @thelincolnpub
                     </a>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Map */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <h2 className="text-lincoln-yellow font-header text-2xl mb-8">
-                FIND US
-              </h2>
-              
-              <div className="bg-lincoln-dark border border-lincoln-gold overflow-hidden">
-                {/* Map Embed */}
-                <div className="aspect-video bg-gray-800">
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3195.8!2d-119.7869!3d36.7468!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzbCsDQ0JzQ4LjUiTiAxMTnCsDQ3JzEyLjgiVw!5e0!3m2!1sen!2sus!4v1234567890"
-                    width="100%"
-                    height="100%"
-                    style={{ border: 0 }}
-                    allowFullScreen=""
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    title="The Lincoln Pub & Grub Location"
-                    className="w-full h-full min-h-[300px]"
-                  />
-                </div>
-
-                {/* Quick Info */}
-                <div className="p-6 bg-lincoln-black">
-                  <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-                    <div>
-                      <h3 className="font-header text-lg text-white">The Lincoln Pub & Grub</h3>
-                      <p className="text-gray-400 text-sm">Tower District, Fresno</p>
-                    </div>
-                    <a
-                      href="https://maps.google.com/?q=609+E+Olive+Avenue+Fresno+CA+93728"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="bg-lincoln-orange hover:bg-lincoln-yellow text-black px-6 py-3 font-subheader font-bold uppercase text-sm tracking-wider transition-colors"
-                    >
-                      Open in Maps
-                    </a>
+                    <p className="text-sm text-gray-500 mt-1">
+                      Follow us for updates and specials
+                    </p>
                   </div>
                 </div>
               </div>
 
               {/* Parking Info */}
-              <div className="mt-6 bg-lincoln-dark border border-lincoln-gold/50 p-4">
+              <div className="mt-8 bg-lincoln-black border border-lincoln-gold/30 p-4">
                 <h4 className="font-subheader font-bold text-lincoln-yellow mb-2">🚗 Parking Info</h4>
                 <p className="text-gray-400 text-sm">
-                  Free street parking available on Olive Avenue and surrounding streets. 
-                  Additional parking lot located behind the building.
+                  Free street parking available at both locations. 
+                  Additional parking lots located nearby.
                 </p>
               </div>
             </motion.div>
@@ -198,8 +221,7 @@ const Contact = () => {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="mt-16"
+            transition={{ duration: 0.6, delay: 0.6 }}
           >
             <div className="bg-lincoln-dark border border-lincoln-gold p-8 max-w-2xl mx-auto">
               <h2 className="text-lincoln-yellow font-header text-2xl mb-6 text-center">
