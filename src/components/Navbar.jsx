@@ -53,7 +53,7 @@ const Navbar = () => {
             {/* Social Icons */}
             <div className="flex items-center gap-3">
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/TheLincolnFresno"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white hover:text-lincoln-gold transition-colors"
@@ -62,7 +62,7 @@ const Navbar = () => {
                 <Facebook size={18} />
               </a>
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/thelincolnpub/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white hover:text-lincoln-gold transition-colors"

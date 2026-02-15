@@ -121,7 +121,7 @@ const Footer = () => {
             </h3>
             <div className="flex gap-4">
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/TheLincolnFresno"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-12 h-12 bg-lincoln-dark border border-lincoln-gold/50 flex items-center justify-center hover:bg-lincoln-gold hover:text-black transition-all"
@@ -129,7 +129,7 @@ const Footer = () => {
                 <Facebook size={24} />
               </a>
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/thelincolnpub/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-12 h-12 bg-lincoln-dark border border-lincoln-gold/50 flex items-center justify-center hover:bg-lincoln-gold hover:text-black transition-all"
