@@ -108,7 +108,7 @@ const Hero = () => {
 
             {/* Mobile Menu Button */}
             <button
-              className="md:hidden text-white p-2 z-50"
+              className="md:hidden text-white p-2 z-50 ml-auto"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label="Toggle menu"
             >
