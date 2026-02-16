@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { menuData } from '../data/menuData';
 import { UtensilsCrossed, Wine, ChevronDown, ChevronUp, Coffee } from 'lucide-react';
@@ -119,9 +120,18 @@ const MenuSection = ({ section }) => {
 };
 
 const Menu = () => {
+  const [searchParams] = useSearchParams();
   const [activeSection, setActiveSection] = useState('food');
   const [openAccordions, setOpenAccordions] = useState({});
   const [isMobile, setIsMobile] = useState(false);
+
+  // Read URL parameter for pre-selection
+  useEffect(() => {
+    const section = searchParams.get('section');
+    if (section && ['food', 'drinks', 'breakfast'].includes(section)) {
+      setActiveSection(section);
+    }
+  }, [searchParams]);
 
   // Check for mobile viewport
   useEffect(() => {
@@ -255,11 +265,11 @@ const Menu = () => {
         <div className="container mx-auto px-4 py-4">
           <div className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8 text-center">
             <p className="text-gray-300 text-sm">
-              <span className="text-lincoln-gold font-bold">📋</span> All parties of 6 or more are subject to <span className="text-lincoln-yellow font-semibold">18% Gratuity</span>
+              <span className="text-lincoln-gold font-bold"></span> All parties of 6 or more are subject to <span className="text-lincoln-yellow font-semibold">18% Gratuity</span>
             </p>
             <span className="hidden md:block text-lincoln-gold">|</span>
             <p className="text-gray-300 text-sm">
-              <span className="text-lincoln-gold font-bold">💳</span> Checks can only be split evenly by the number of people in the party
+              <span className="text-lincoln-gold font-bold"></span> Checks can only be split evenly by the number of people in the party
             </p>
           </div>
         </div>

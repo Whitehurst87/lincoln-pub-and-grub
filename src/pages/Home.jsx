@@ -183,7 +183,7 @@ const Home = () => {
                   Try the Old Abe, First Lady, or Railsplitter - handcrafted cocktails 
                   inspired by American history.
                 </p>
-                <Link to="/menu" className="text-lincoln-yellow font-bold hover:text-lincoln-orange transition-colors">
+                <Link to="/menu?section=drinks" className="text-lincoln-yellow font-bold hover:text-lincoln-orange transition-colors">
                   See Drinks →
                 </Link>
               </div>
@@ -210,7 +210,7 @@ const Home = () => {
                   Over 20 beers on tap featuring local favorites and imported classics. 
                   $5 draft specials daily!
                 </p>
-                <Link to="/menu" className="text-lincoln-yellow font-bold hover:text-lincoln-orange transition-colors">
+                <Link to="/beer-menu" className="text-lincoln-yellow font-bold hover:text-lincoln-orange transition-colors">
                   Beer List →
                 </Link>
               </div>
