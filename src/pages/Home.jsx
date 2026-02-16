@@ -145,8 +145,8 @@ const Home = () => {
             >
               <div className="h-48 overflow-hidden">
                 <img
-                  src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-                  alt="Food"
+                  src={`${baseUrl}images/Bites.png`}
+                  alt="$5 Bites"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
               </div>
@@ -172,9 +172,9 @@ const Home = () => {
             >
               <div className="h-48 overflow-hidden">
                 <img
-                  src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-                  alt="Cocktails"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  src={`${baseUrl}images/Cocktails.png`}
+                  alt="Craft Cocktails"
+                  className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-500"
                 />
               </div>
               <div className="p-6">
@@ -199,9 +199,9 @@ const Home = () => {
             >
               <div className="h-48 overflow-hidden">
                 <img
-                  src="https://images.unsplash.com/photo-1535958636474-b021ee887b13?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-                  alt="Beer"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  src={`${baseUrl}images/Beer.png`}
+                  alt="Craft Beer"
+                  className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-500"
                 />
               </div>
               <div className="p-6">
@@ -223,7 +223,7 @@ const Home = () => {
       <section 
         className="py-20 relative"
         style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1525268323446-0505b6fe7778?ixlib=rb-4.0.3&auto=format&fit=crop&w=1974&q=80')`,
+          backgroundImage: `url('${baseUrl}images/Happy Staff.png')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundAttachment: 'fixed',

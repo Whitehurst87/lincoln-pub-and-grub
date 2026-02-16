@@ -1,6 +1,8 @@
 import { MapPin, Clock, Phone, Instagram, Facebook, Mail, Send } from 'lucide-react';
 import { useState } from 'react';
 
+const baseUrl = import.meta.env.BASE_URL;
+
 // Location data
 const locations = [
   {
@@ -67,9 +69,11 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <div className="mb-4">
-              <span className="text-lincoln-gold text-sm tracking-[0.2em]">THE</span>
-              <h2 className="text-3xl font-header font-light text-white">LINCOLN</h2>
-              <span className="text-lincoln-yellow text-sm tracking-wider">PUB & GRUB</span>
+              <img 
+                src={`${baseUrl}images/Lincoln-Footer_logo.png`}
+                alt="The Lincoln Pub & Grub"
+                className="h-24 w-auto"
+              />
             </div>
             <p className="text-gray-400 text-sm leading-relaxed">
               A locally owned restaurant and bar with locations in Fresno's historic Tower District and Old Town Clovis.

@@ -177,21 +177,6 @@ const Menu = () => {
         height="40vh"
       />
 
-      {/* Global Rules Banner */}
-      <div className="bg-lincoln-dark border-y border-lincoln-gold/50">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8 text-center">
-            <p className="text-gray-300 text-sm">
-              <span className="text-lincoln-gold font-bold">📋</span> All parties of 6 or more are subject to <span className="text-lincoln-yellow font-semibold">18% Gratuity</span>
-            </p>
-            <span className="hidden md:block text-lincoln-gold">|</span>
-            <p className="text-gray-300 text-sm">
-              <span className="text-lincoln-gold font-bold">💳</span> Checks can only be split evenly by the number of people in the party
-            </p>
-          </div>
-        </div>
-      </div>
-
       {/* Sticky Navigation */}
       <div className="sticky top-0 z-40 bg-lincoln-black/95 backdrop-blur border-b border-lincoln-gold/30 shadow-lg">
         <div className="container mx-auto px-4">
@@ -200,15 +185,14 @@ const Menu = () => {
               <button
                 key={id}
                 onClick={() => scrollToSection(id)}
-                className={`flex items-center gap-2 px-4 md:px-8 py-3 font-subheader font-bold uppercase tracking-wider transition-all border-2 text-sm md:text-base ${
+                className={`flex items-center gap-2 px-3 md:px-8 py-3 font-subheader font-bold uppercase tracking-wider transition-all border-2 text-xs md:text-base ${
                   activeSection === id
                     ? 'bg-lincoln-orange border-lincoln-orange text-black'
                     : 'bg-transparent border-lincoln-gold text-lincoln-gold hover:bg-lincoln-gold hover:text-black'
                 }`}
               >
                 <Icon size={18} />
-                <span className="hidden sm:inline">{label}</span>
-                <span className="sm:hidden">{label.charAt(0)}</span>
+                <span>{label}</span>
               </button>
             ))}
           </div>
@@ -263,6 +247,21 @@ const Menu = () => {
         <div className="text-center mt-12 text-gray-500 text-sm space-y-1">
           <p>* Prices and availability subject to change</p>
           <p>* Please inform your server of any allergies</p>
+        </div>
+      </div>
+
+      {/* Global Rules Banner - Bottom */}
+      <div className="bg-lincoln-dark border-y border-lincoln-gold/50">
+        <div className="container mx-auto px-4 py-4">
+          <div className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8 text-center">
+            <p className="text-gray-300 text-sm">
+              <span className="text-lincoln-gold font-bold">📋</span> All parties of 6 or more are subject to <span className="text-lincoln-yellow font-semibold">18% Gratuity</span>
+            </p>
+            <span className="hidden md:block text-lincoln-gold">|</span>
+            <p className="text-gray-300 text-sm">
+              <span className="text-lincoln-gold font-bold">💳</span> Checks can only be split evenly by the number of people in the party
+            </p>
+          </div>
         </div>
       </div>
     </div>

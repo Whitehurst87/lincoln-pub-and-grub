@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { UtensilsCrossed, Facebook, Instagram, Phone } from 'lucide-react';
+import { UtensilsCrossed, Facebook, Instagram, Phone, Menu, X } from 'lucide-react';
 
 // Hero images array - use base URL for GitHub Pages
 const baseUrl = import.meta.env.BASE_URL;
@@ -22,6 +22,7 @@ const navLinks = [
 const Hero = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isFlashing, setIsFlashing] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // Rotate images every 3 seconds
   useEffect(() => {
@@ -105,6 +106,15 @@ const Hero = () => {
               </Link>
             </motion.div>
 
+            {/* Mobile Menu Button */}
+            <button
+              className="md:hidden text-white p-2 z-50"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+            </button>
+
             {/* Right - Social & Contact */}
             <div className="hidden md:flex items-center gap-4 pt-4">
               <a
@@ -136,6 +146,57 @@ const Hero = () => {
             </div>
           </div>
         </div>
+
+        {/* Mobile Menu Overlay */}
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3 }}
+              className="md:hidden absolute top-20 left-0 right-0 bg-lincoln-dark/95 backdrop-blur-sm border-b border-lincoln-gold/30 z-40"
+            >
+              <ul className="flex flex-col items-center py-6 gap-4">
+                {navLinks.map((link) => (
+                  <li key={link.path}>
+                    <Link
+                      to={link.path}
+                      className="text-white hover:text-lincoln-yellow transition-colors font-subheader font-bold uppercase tracking-wider text-lg"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+              <div className="flex justify-center gap-6 pb-6">
+                <a
+                  href="https://www.facebook.com/TheLincolnFresno"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-lincoln-gold hover:text-lincoln-yellow transition-colors"
+                >
+                  <Facebook size={24} />
+                </a>
+                <a
+                  href="https://www.instagram.com/thelincolnpub/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-lincoln-gold hover:text-lincoln-yellow transition-colors"
+                >
+                  <Instagram size={24} />
+                </a>
+                <a
+                  href="tel:5593553533"
+                  className="flex items-center gap-2 text-lincoln-gold hover:text-lincoln-yellow transition-colors"
+                >
+                  <Phone size={20} />
+                </a>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         {/* Main Logo Section - Centered */}
         <div className="flex-grow flex flex-col items-center justify-center px-4">
